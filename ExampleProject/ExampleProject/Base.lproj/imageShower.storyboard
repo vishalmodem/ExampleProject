@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HBa-ax-odw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="sf-ui-text-regular-58646b56a688c.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Image ShowVC-->
+        <scene sceneID="s7m-NL-u9a">
+            <objects>
+                <viewController id="HBa-ax-odw" customClass="ImageShowVC" customModule="ExampleProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xcf-ow-0K6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rIZ-Ju-1JI">
+                                <rect key="frame" x="16" y="36" width="343" height="527"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9X-qK-rfo">
+                                <rect key="frame" x="239" y="587" width="120" height="60"/>
+                                <color key="backgroundColor" red="0.22467740080000001" green="0.2253191326" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="hJE-3a-KLE"/>
+                                    <constraint firstAttribute="height" constant="60" id="l5k-lq-iFu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
+                                <state key="normal" title="Dismiss">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dismissClicked:" destination="HBa-ax-odw" eventType="touchUpInside" id="VZW-PR-Jjp"/>
+                                    <segue destination="Jqy-hR-gMU" kind="unwind" unwindAction="unwindSegue:" id="Hs8-fW-ddC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="AvH-SC-hnU" firstAttribute="bottom" secondItem="u9X-qK-rfo" secondAttribute="bottom" constant="20" id="1NY-fo-YbX"/>
+                            <constraint firstItem="AvH-SC-hnU" firstAttribute="trailing" secondItem="rIZ-Ju-1JI" secondAttribute="trailing" constant="16" id="7XB-ia-LbW"/>
+                            <constraint firstItem="rIZ-Ju-1JI" firstAttribute="leading" secondItem="AvH-SC-hnU" secondAttribute="leading" constant="16" id="T8H-9o-wr5"/>
+                            <constraint firstItem="rIZ-Ju-1JI" firstAttribute="top" secondItem="AvH-SC-hnU" secondAttribute="top" constant="16" id="Trd-Ds-Xmp"/>
+                            <constraint firstItem="u9X-qK-rfo" firstAttribute="trailing" secondItem="rIZ-Ju-1JI" secondAttribute="trailing" id="V8I-q8-G9t"/>
+                            <constraint firstItem="u9X-qK-rfo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Xcf-ow-0K6" secondAttribute="leading" constant="20" symbolic="YES" id="ZT3-aw-G0K"/>
+                            <constraint firstItem="u9X-qK-rfo" firstAttribute="top" secondItem="rIZ-Ju-1JI" secondAttribute="bottom" constant="24" id="sKS-gf-DjP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AvH-SC-hnU"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="rIZ-Ju-1JI" id="2vx-Wk-6NS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nc7-kQ-fpU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Jqy-hR-gMU" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2623" y="798"/>
+        </scene>
+    </scenes>
+</document>
