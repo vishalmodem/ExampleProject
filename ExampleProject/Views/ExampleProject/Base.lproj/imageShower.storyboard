@@ -24,14 +24,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rIZ-Ju-1JI">
-                                <rect key="frame" x="16" y="36" width="343" height="527"/>
+                                <rect key="frame" x="16" y="36" width="343" height="185"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9X-qK-rfo">
-                                <rect key="frame" x="239" y="587" width="120" height="60"/>
+                                <rect key="frame" x="239" y="548" width="120" height="50"/>
                                 <color key="backgroundColor" red="0.22467740080000001" green="0.2253191326" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="hJE-3a-KLE"/>
-                                    <constraint firstAttribute="height" constant="60" id="l5k-lq-iFu"/>
+                                    <constraint firstAttribute="height" constant="50" id="hME-hQ-l4D"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="mrA-Yu-syh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
                                 <state key="normal" title="Dismiss">
@@ -47,27 +47,37 @@
                                     <segue destination="Jqy-hR-gMU" kind="unwind" unwindAction="unwindSegue:" id="Hs8-fW-ddC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o0r-cf-39Z">
+                                <rect key="frame" x="167" y="241" width="41" height="20"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
+                                <color key="textColor" red="1" green="0.11982793557428373" blue="0.38036276746988662" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="AvH-SC-hnU" firstAttribute="bottom" secondItem="u9X-qK-rfo" secondAttribute="bottom" constant="20" id="1NY-fo-YbX"/>
-                            <constraint firstItem="AvH-SC-hnU" firstAttribute="trailing" secondItem="rIZ-Ju-1JI" secondAttribute="trailing" constant="16" id="7XB-ia-LbW"/>
-                            <constraint firstItem="rIZ-Ju-1JI" firstAttribute="leading" secondItem="AvH-SC-hnU" secondAttribute="leading" constant="16" id="T8H-9o-wr5"/>
-                            <constraint firstItem="rIZ-Ju-1JI" firstAttribute="top" secondItem="AvH-SC-hnU" secondAttribute="top" constant="16" id="Trd-Ds-Xmp"/>
-                            <constraint firstItem="u9X-qK-rfo" firstAttribute="trailing" secondItem="rIZ-Ju-1JI" secondAttribute="trailing" id="V8I-q8-G9t"/>
-                            <constraint firstItem="u9X-qK-rfo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Xcf-ow-0K6" secondAttribute="leading" constant="20" symbolic="YES" id="ZT3-aw-G0K"/>
-                            <constraint firstItem="u9X-qK-rfo" firstAttribute="top" secondItem="rIZ-Ju-1JI" secondAttribute="bottom" constant="24" id="sKS-gf-DjP"/>
+                            <constraint firstAttribute="bottom" secondItem="o0r-cf-39Z" secondAttribute="bottom" priority="250" constant="406" id="0rw-w7-to1"/>
+                            <constraint firstItem="AvH-SC-hnU" firstAttribute="trailing" secondItem="rIZ-Ju-1JI" secondAttribute="trailing" constant="16" id="2ZX-QI-fvW"/>
+                            <constraint firstItem="rIZ-Ju-1JI" firstAttribute="top" secondItem="AvH-SC-hnU" secondAttribute="top" constant="16" id="DW0-Mw-qK5"/>
+                            <constraint firstItem="u9X-qK-rfo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="AvH-SC-hnU" secondAttribute="leading" constant="239" id="FL6-nJ-dPw"/>
+                            <constraint firstItem="o0r-cf-39Z" firstAttribute="top" secondItem="rIZ-Ju-1JI" secondAttribute="bottom" priority="750" constant="20" id="KGn-Xh-pYT"/>
+                            <constraint firstItem="AvH-SC-hnU" firstAttribute="bottom" secondItem="u9X-qK-rfo" secondAttribute="bottom" constant="69" id="WYz-A3-ApW"/>
+                            <constraint firstItem="rIZ-Ju-1JI" firstAttribute="leading" secondItem="AvH-SC-hnU" secondAttribute="leading" constant="16" id="XE3-jN-Vsm"/>
+                            <constraint firstItem="AvH-SC-hnU" firstAttribute="trailing" secondItem="u9X-qK-rfo" secondAttribute="trailing" constant="16" id="b3z-rr-raC"/>
+                            <constraint firstItem="o0r-cf-39Z" firstAttribute="centerX" secondItem="rIZ-Ju-1JI" secondAttribute="centerX" id="lxg-VB-pTV"/>
+                            <constraint firstItem="o0r-cf-39Z" firstAttribute="centerX" secondItem="Xcf-ow-0K6" secondAttribute="centerX" id="u7W-bf-rvO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AvH-SC-hnU"/>
                     </view>
                     <connections>
+                        <outlet property="NameLbl" destination="o0r-cf-39Z" id="Hkg-9h-N7J"/>
                         <outlet property="imageView" destination="rIZ-Ju-1JI" id="2vx-Wk-6NS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nc7-kQ-fpU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jqy-hR-gMU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2623" y="798"/>
+            <point key="canvasLocation" x="2621.5999999999999" y="797.45127436281871"/>
         </scene>
     </scenes>
 </document>

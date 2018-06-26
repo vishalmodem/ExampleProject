@@ -10,10 +10,17 @@ import Foundation
 
 struct Actors: Codable {
     var actors : [Actor]?
+//    init(actors: [Actor]) {
+//        self.actors = actors
+//    }
 }
 struct Actor : Codable {
     let name : String?
     let image : String?
+//    init(name:String, image : String) {
+//        self.name = name
+//        self.image = image
+//    }
     
     }
 

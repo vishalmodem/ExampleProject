@@ -7,54 +7,72 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
 
-    var actors : [Actor] = [Actor]()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+var actors : [Actor] = [Actor]()
+    var hollyActors = [HollyActors]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+        loadData()
     }
     @IBAction func Make(_ sender: UIButton) {
-       makeRequest()
-    }
-    func makeRequest() {
-        guard let url = URL(string: "http://microblogging.wingnity.com/JSONParsingTutorial/jsonActors") else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil, response != nil else{
-           return
+        RequestManager.shared.getActorsData({ (actors) in
+            self.actors = actors
+            if self.hollyActors.count < 6 {
+                self.hollyActors.forEach({ (hA) in
+                    self.context.delete(hA)
+                    self.saveData()
+                })
+                self.loadData()
+            let operationQueue = OperationQueue()
+                operationQueue.maxConcurrentOperationCount = 1
+            for actor in actors{
+                let operation = {
+                let hA = HollyActors(context: self.context)
+                hA.image = actor.image
+                hA.name = actor.name
+                self.hollyActors.append(hA)
+                self.saveData()
+                }
+                operationQueue.addOperation(operation)
             }
-            do{
-            let decoder = JSONDecoder()
-            let downloadedactors =  try decoder.decode(Actors.self, from: data)
-//           self.actors = [Actor]()
-//                for actor in downloadedactors.actors!{
-//                  let a =   Actor(name: actor.name, image: actor.image)
-//                    self.actors?.append(a)
-//                }
-                guard let actors =  downloadedactors.actors else { return }
-                self.actors = actors
+            }
+            })
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "segue", sender: self)
-                    
                 }
-            } catch{
-                print(error.localizedDescription)
-            }
-        }.resume()
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segue" {
             if let destinationVC = segue.destination as? ActorsTVC {
-                //guard let actors = self.actors else{ return}
-                let s = sender as? ViewController
-                destinationVC.actors = s?.actors
+                guard let s = sender as? ViewController else{ return }
+                destinationVC.actors = s.actors
             }
         }
     }
     @IBAction func unwindSegue(_ sender: UIStoryboardSegue){
 }
+    
+    private func saveData(){
+        do{
+        try context.save()
+        } catch{
+            print(error)
+        }
+    }
+    private func loadData(){
+        let request: NSFetchRequest = HollyActors.fetchRequest()
+        do{
+            hollyActors = try context.fetch(request)
+            print(hollyActors.count)
+        }
+        catch{
+            print(error)
+        }
+    }
 
 }

@@ -13,10 +13,14 @@
 		090461E820DA2AE200B5CE8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 090461E720DA2AE200B5CE8A /* Assets.xcassets */; };
 		090461EB20DA2AE200B5CE8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 090461E920DA2AE200B5CE8A /* LaunchScreen.storyboard */; };
 		090461F620DADA5600B5CE8A /* Actor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090461F520DADA5600B5CE8A /* Actor.swift */; };
+		092F172920DEC5AD00603AC7 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092F172820DEC5AD00603AC7 /* RequestManager.swift */; };
+		092F172C20E06B8D00603AC7 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 092F172A20E06B8D00603AC7 /* DataModel.xcdatamodeld */; };
 		094CC45420DB32580025CA0A /* ImageShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094CC45320DB32580025CA0A /* ImageShowVC.swift */; };
 		094CC45720DB33140025CA0A /* imageShower.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 094CC45520DB33140025CA0A /* imageShower.storyboard */; };
 		09F4699520DAF744004E4337 /* ActorsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F4699420DAF744004E4337 /* ActorsTVC.swift */; };
 		09F6656020DB503A00137FC4 /* sf-ui-text-regular-58646b56a688c.otf in Resources */ = {isa = PBXBuildFile; fileRef = 09F6655F20DB503A00137FC4 /* sf-ui-text-regular-58646b56a688c.otf */; };
+		09F6659020DCCB2E00137FC4 /* ActorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F6658F20DCCB2E00137FC4 /* ActorTableViewCell.swift */; };
+		09F6659220DCCE6E00137FC4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F6659120DCCE6E00137FC4 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +32,14 @@
 		090461EA20DA2AE200B5CE8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		090461EC20DA2AE200B5CE8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		090461F520DADA5600B5CE8A /* Actor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Actor.swift; sourceTree = "<group>"; };
+		092F172820DEC5AD00603AC7 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
+		092F172B20E06B8D00603AC7 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		094CC45320DB32580025CA0A /* ImageShowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageShowVC.swift; sourceTree = "<group>"; };
 		094CC45620DB33140025CA0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ExampleProject/Base.lproj/imageShower.storyboard; sourceTree = "<group>"; };
 		09F4699420DAF744004E4337 /* ActorsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorsTVC.swift; sourceTree = "<group>"; };
 		09F6655F20DB503A00137FC4 /* sf-ui-text-regular-58646b56a688c.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sf-ui-text-regular-58646b56a688c.otf"; sourceTree = "<group>"; };
+		09F6658F20DCCB2E00137FC4 /* ActorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActorTableViewCell.swift; sourceTree = "<group>"; };
+		09F6659120DCCE6E00137FC4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +76,6 @@
 				090461F320DA2B1000B5CE8A /* Controllers */,
 				090461F220DA2B0600B5CE8A /* Views */,
 				090461E020DA2AE000B5CE8A /* AppDelegate.swift */,
-				090461E420DA2AE000B5CE8A /* Main.storyboard */,
-				094CC45520DB33140025CA0A /* imageShower.storyboard */,
 				090461E720DA2AE200B5CE8A /* Assets.xcassets */,
 				090461E920DA2AE200B5CE8A /* LaunchScreen.storyboard */,
 				09F6655F20DB503A00137FC4 /* sf-ui-text-regular-58646b56a688c.otf */,
@@ -81,6 +87,8 @@
 		090461F220DA2B0600B5CE8A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				090461E420DA2AE000B5CE8A /* Main.storyboard */,
+				094CC45520DB33140025CA0A /* imageShower.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -91,6 +99,8 @@
 				090461E220DA2AE000B5CE8A /* ViewController.swift */,
 				09F4699420DAF744004E4337 /* ActorsTVC.swift */,
 				094CC45320DB32580025CA0A /* ImageShowVC.swift */,
+				09F6659120DCCE6E00137FC4 /* CustomButton.swift */,
+				09F6658F20DCCB2E00137FC4 /* ActorTableViewCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -99,6 +109,8 @@
 			isa = PBXGroup;
 			children = (
 				090461F520DADA5600B5CE8A /* Actor.swift */,
+				092F172820DEC5AD00603AC7 /* RequestManager.swift */,
+				092F172A20E06B8D00603AC7 /* DataModel.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,8 +189,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				090461F620DADA5600B5CE8A /* Actor.swift in Sources */,
+				09F6659220DCCE6E00137FC4 /* CustomButton.swift in Sources */,
+				09F6659020DCCB2E00137FC4 /* ActorTableViewCell.swift in Sources */,
+				092F172920DEC5AD00603AC7 /* RequestManager.swift in Sources */,
 				090461E320DA2AE000B5CE8A /* ViewController.swift in Sources */,
 				090461E120DA2AE000B5CE8A /* AppDelegate.swift in Sources */,
+				092F172C20E06B8D00603AC7 /* DataModel.xcdatamodeld in Sources */,
 				094CC45420DB32580025CA0A /* ImageShowVC.swift in Sources */,
 				09F4699520DAF744004E4337 /* ActorsTVC.swift in Sources */,
 			);
@@ -384,6 +400,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		092F172A20E06B8D00603AC7 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				092F172B20E06B8D00603AC7 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 092F172B20E06B8D00603AC7 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 090461D520DA2AE000B5CE8A /* Project object */;
 }

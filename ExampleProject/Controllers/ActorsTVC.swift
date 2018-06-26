@@ -7,39 +7,29 @@
 //
 
 import UIKit
+import CoreData
 
 class ActorsTVC: UITableViewController {
 
     var actors : [Actor]?
-
+    var hollyActors = [HollyActors]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 100
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
+        loadData()
         
     }
 
-    // MARK: - Table view data source
-
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actors!.count
+        return actors?.count ?? 0
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = actors![indexPath.row].name
-        let url = URL(string: actors![indexPath.row].image!)
-        if let imageUrl = url {
-            do {
-            let data = try Data(contentsOf: imageUrl)
-                cell.imageView?.image = UIImage(data: data)
-
-        } catch{
-            print(error.localizedDescription)
-            }
-        }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ActorTableViewCell
+        cell.updateCell(actor: actors![indexPath.row])
         return cell
     }
     
@@ -47,9 +37,8 @@ class ActorsTVC: UITableViewController {
         if segue.identifier == "segue1" {
             if let destinationVC = segue.destination as? ImageShowVC {
                 //guard let actors = self.actors else{ return}
-                guard let cell = sender as? UITableViewCell, let actrs = actors  else { return }
-                
-                guard let indexpath = tableView.indexPath(for: cell), let imgURL = actrs[indexpath.row].image, let name = actrs[indexpath.row].name else { return }
+                guard let cell = sender as? UITableViewCell  else { return }
+                guard let indexpath = tableView.indexPath(for: cell), let imgURL = hollyActors[indexpath.row].image, let name = hollyActors[indexpath.row].name else { return }
                 do{
                     guard let url = URL(string: imgURL) else{ return}
                     let data = try Data(contentsOf: url)
@@ -76,34 +65,24 @@ class ActorsTVC: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             actors?.remove(at: indexPath.row)
+            context.delete(hollyActors[indexPath.row])
+            do{
+                try context.save()
+            } catch{
+                print(error)
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
+loadData()
         }
     }
-    
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    private func loadData(){
+        let request: NSFetchRequest = HollyActors.fetchRequest()
+        do{
+            hollyActors = try context.fetch(request)
+        }
+        catch{
+            print(error)
+        }
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

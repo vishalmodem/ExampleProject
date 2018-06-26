@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,22 +24,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKQ-SG-xGf">
-                                <rect key="frame" x="127" y="303" width="120" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jKQ-SG-xGf" customClass="CustomButton" customModule="ExampleProject" customModuleProvider="target">
+                                <rect key="frame" x="127" y="308" width="120" height="50"/>
                                 <color key="backgroundColor" red="0.22467740080807175" green="0.22531913258123859" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="NRY-PO-f26"/>
+                                    <constraint firstAttribute="height" constant="50" id="NRY-PO-f26"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="szN-PU-5xv"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="16"/>
                                 <state key="normal" title="Make Request">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="Make:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tfb-Fc-pYJ"/>
                                 </connections>
@@ -69,15 +65,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="111" id="syb-da-rNk">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="111" id="syb-da-rNk" customClass="ActorTableViewCell" customModule="ExampleProject" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="111"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="syb-da-rNk" id="Pfe-aJ-2oN">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1of-Lq-jB4">
+                                            <rect key="frame" x="16" y="3" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="Pan-KF-Wxj"/>
+                                                <constraint firstAttribute="height" constant="100" id="Syv-YD-BZr"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cK8-qf-k8U">
+                                            <rect key="frame" x="166" y="43" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="cK8-qf-k8U" secondAttribute="bottom" constant="34" id="1Bb-XK-Mbb"/>
+                                        <constraint firstItem="1of-Lq-jB4" firstAttribute="top" secondItem="Pfe-aJ-2oN" secondAttribute="top" constant="3" id="H3d-f8-WAP"/>
+                                        <constraint firstItem="cK8-qf-k8U" firstAttribute="centerY" secondItem="1of-Lq-jB4" secondAttribute="centerY" id="Men-7e-d0U"/>
+                                        <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="cK8-qf-k8U" secondAttribute="trailing" constant="151" id="R5W-gJ-58L"/>
+                                        <constraint firstItem="cK8-qf-k8U" firstAttribute="leading" secondItem="1of-Lq-jB4" secondAttribute="trailing" constant="50" id="cqa-ke-i7l"/>
+                                        <constraint firstAttribute="bottom" secondItem="1of-Lq-jB4" secondAttribute="bottom" constant="3" id="eIa-8d-sWv"/>
+                                        <constraint firstItem="1of-Lq-jB4" firstAttribute="leading" secondItem="Pfe-aJ-2oN" secondAttribute="leading" constant="16" id="nN7-nD-0I3"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="Wrh-aW-QEP" kind="show" identifier="segue1" id="BEu-dF-BA4"/>
+                                    <outlet property="imageView" destination="1of-Lq-jB4" id="joP-KS-7IQ"/>
+                                    <outlet property="imageViewer" destination="1of-Lq-jB4" id="3dD-Q9-HDL"/>
+                                    <outlet property="nameLbl" destination="cK8-qf-k8U" id="jhB-Oa-82c"/>
+                                    <segue destination="Wrh-aW-QEP" kind="show" identifier="segue1" id="IjO-Bt-suZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

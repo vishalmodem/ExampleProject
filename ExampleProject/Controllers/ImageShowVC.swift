@@ -10,6 +10,7 @@ import UIKit
 
 class ImageShowVC: UIViewController {
 
+    @IBOutlet weak var NameLbl: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var image :UIImage?
     var name : String?{
@@ -22,7 +23,7 @@ class ImageShowVC: UIViewController {
 
         guard let img = image else { return }
         imageView.image = img
-        
+        NameLbl.text = name
     }
 
     @IBAction func dismissClicked(_ sender: UIButton) {
