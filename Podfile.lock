@@ -1,0 +1,16 @@
+PODS:
+  - RequestManagerFramework (1.0.0)
+
+DEPENDENCIES:
+  - RequestManagerFramework (~> 1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - RequestManagerFramework
+
+SPEC CHECKSUMS:
+  RequestManagerFramework: da913ebfba6e091bdfbefe61d014892132f04271
+
+PODFILE CHECKSUM: edb9da9f3cbfe952c6114ceb23cf3895a4fb1f56
+
+COCOAPODS: 1.5.3

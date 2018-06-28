@@ -1,21 +1,22 @@
 //
-//  RequestManager.swift
-//  ExampleProject
+//  File.swift
+//  RequestManagerFramework
 //
-//  Created by vishal modem on 6/23/18.
+//  Created by vishal modem on 6/28/18.
 //  Copyright © 2018 vishal modem. All rights reserved.
 //
 
 import Foundation
-enum RequestCreator{
-   case get
+
+private enum RequestCreator{
+    case get
     case post(Actor)
     case update(Actor)
     case delete(Actor)
     
     static let baseURl = "http://microblogging.wingnity.com/JSONParsingTutorial/jsonActors"
-
-    var method : String{
+    
+    private var method : String{
         switch self {
         case .get:
             return "GET"
@@ -31,20 +32,20 @@ enum RequestCreator{
     public func urlRequest() -> URLRequest {
         let url : URL = {
             let relativePath : String?
-                switch self {
-                case .get, .post:
-                    relativePath = nil
-                case .update(let actor), .delete(let actor):
-                    relativePath = "\(actor)"
+            switch self {
+            case .get, .post:
+                relativePath = nil
+            case .update(let actor), .delete(let actor):
+                relativePath = "\(actor)"
             }
             var url = URL(string: RequestCreator.baseURl)!
             if let path = relativePath {
                 url = url.appendingPathComponent(path)
             }
             return url
-    }()
+        }()
         
-        let parameters : Actor? = {
+         let parameters : Actor? = {
             switch self {
             case .get, .delete :
                 return nil
@@ -60,34 +61,34 @@ enum RequestCreator{
         }
         let encoder = JSONEncoder()
         do{
-           let data =  try encoder.encode(actor)
+            let data =  try encoder.encode(actor)
             request.httpBody = data
         } catch{
             print(error.localizedDescription)
         }
         
         return request
+    }
 }
-}
-class RequestManager {
-    static let shared = RequestManager()
-    func getActorsData(_ completion: @escaping ([Actor])->()){
+public class RequestManager {
+    public static let shared = RequestManager()
+    public func getActorsData(_ completion: @escaping ([Actor])->()){
         makeRequest(request: RequestCreator.get) { (actors) in
-           completion(actors)
-        }
-}
-    func postAnActor(actor : Actor){
-        makeRequest(request: RequestCreator.post(actor)) { (actors) in
-           
+            completion(actors)
         }
     }
-    func updateAnActor(actor : Actor){
+    public func postAnActor(actor : Actor){
+        makeRequest(request: RequestCreator.post(actor)) { (actors) in
+            
+        }
+    }
+    public func updateAnActor(actor : Actor){
         makeRequest(request: RequestCreator.update(actor)) { (actors) in
             
         }
         
     }
-    func deleteAnActor(actor : Actor){
+    public func deleteAnActor(actor : Actor){
         makeRequest(request: RequestCreator.delete(actor)) { (actors) in
             
         }
@@ -100,9 +101,9 @@ class RequestManager {
         let requestObject = request.urlRequest()
         URLSession.shared.dataTask(with: requestObject){ (data, response, error) in
             guard let info = data, error == nil, response != nil else{
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
                 return
-        }
+            }
             //print(String(data: info, encoding: String.Encoding.utf8))
             let decoder = JSONDecoder()
             do {
@@ -120,7 +121,7 @@ class RequestManager {
             } catch{
                 print(error.localizedDescription)
             }
-    }.resume()
-}
- 
+            }.resume()
+    }
+    
 }

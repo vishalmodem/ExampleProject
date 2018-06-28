@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RequestManagerFramework
 
 class ViewController: UIViewController {
 
@@ -50,7 +51,7 @@ var actors : [Actor] = [Actor]()
         if segue.identifier == "segue" {
             if let destinationVC = segue.destination as? ActorsTVC {
                 guard let s = sender as? ViewController else{ return }
-                destinationVC.actors = s.actors
+                destinationVC.actors = self.actors
             }
         }
     }

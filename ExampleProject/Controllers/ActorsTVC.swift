@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import RequestManagerFramework
 
 class ActorsTVC: UITableViewController {
 
