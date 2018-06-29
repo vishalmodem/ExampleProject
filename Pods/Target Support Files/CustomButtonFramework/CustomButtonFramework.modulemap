@@ -1,0 +1,6 @@
+framework module CustomButtonFramework {
+  umbrella header "CustomButtonFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}

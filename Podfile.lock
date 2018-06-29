@@ -1,0 +1,20 @@
+PODS:
+  - CustomButtonFramework (1.0.0)
+  - RequestManagerFramework (1.0.0)
+
+DEPENDENCIES:
+  - CustomButtonFramework
+  - RequestManagerFramework (~> 1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CustomButtonFramework
+    - RequestManagerFramework
+
+SPEC CHECKSUMS:
+  CustomButtonFramework: 879d9713dfdd444538ff51c1f7ae4bd304bff8d5
+  RequestManagerFramework: da913ebfba6e091bdfbefe61d014892132f04271
+
+PODFILE CHECKSUM: 8353779e2cf2be6249a17736b9d5bb234af81e11
+
+COCOAPODS: 1.5.3
