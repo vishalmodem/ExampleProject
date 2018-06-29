@@ -143,9 +143,11 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/CustomButtonFramework/CustomButtonFramework.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RequestManagerFramework/RequestManagerFramework.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/CustomButtonFramework/CustomButtonFramework.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RequestManagerFramework/RequestManagerFramework.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

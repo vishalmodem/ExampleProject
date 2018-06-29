@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A8333BCD7EFDC9472B357E020B40098"
-               BlueprintName = "RequestManagerFramework"
+               BlueprintIdentifier = "EA5AC27973F04E496DDB77D9AAC37DA6"
+               BlueprintName = "CustomButtonFramework"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "RequestManagerFramework.framework">
+               BuildableName = "CustomButtonFramework.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

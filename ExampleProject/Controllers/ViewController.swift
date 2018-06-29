@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import RequestManagerFramework
+import CustomButtonFramework
 
 class ViewController: UIViewController {
 
@@ -51,7 +52,7 @@ var actors : [Actor] = [Actor]()
         if segue.identifier == "segue" {
             if let destinationVC = segue.destination as? ActorsTVC {
                 guard let s = sender as? ViewController else{ return }
-                destinationVC.actors = self.actors
+                destinationVC.actors = s.actors
             }
         }
     }

@@ -7,5 +7,5 @@ target 'ExampleProject' do
 
   # Pods for ExampleProject
   pod 'RequestManagerFramework', '~> 1.0'
-
+  pod 'CustomButtonFramework'
 end
